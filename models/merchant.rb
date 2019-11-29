@@ -15,6 +15,10 @@ def initialize(merchant_details)
   @name = merchant_details['name']
 end
 
+def self.delete_all()
+  sql = "DELETE FROM merchants;"
+  SqlRunner.run(sql)
+end
 
 
 
