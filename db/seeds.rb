@@ -100,5 +100,11 @@ transaction5.save()
     })
   transaction6.save()
 
+transactions = Transaction.all
+for transaction in transactions
+p transaction.merchant.name
+p transaction.tag.name
+end
+
 binding.pry
 nil
