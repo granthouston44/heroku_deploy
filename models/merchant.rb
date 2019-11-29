@@ -20,6 +20,30 @@ def self.delete_all()
   SqlRunner.run(sql)
 end
 
+def save()
+sql = "
+INSERT INTO merchants
+(
+  name
+)
+VALUES
+(
+  $1
+)
+RETURNING id
+"
+values = [@name]
+results = SqlRunner.run(sql, values)
+#the returing sql command is bringing back the id
+#the returned id is then assigned to the instance
+#because SQL always returns an array, we want to access
+#the first element of the array, then the key 'id' as
+#as that is what parameters that the Merchant object takes
+@id = results.first()['id'].to_i
+end
+
+
+
 
 
 

@@ -6,15 +6,15 @@ require('pry')
   merchant1 = Merchant.new({
     'name' => 'Amazon'
     })
-
+  merchant1.save()
   merchant2 = Merchant.new({
     'name' => 'Costco'
     })
-
-  merchant1 = Merchant.new({
+  merchant2.save()
+  merchant3 = Merchant.new({
     'name' => 'Game'
     })
-
+  merchant3.save()
 binding.pry
 
 nil
