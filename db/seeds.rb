@@ -1,7 +1,9 @@
 require_relative('../models/merchant')
+require_relative('../models/tag')
 require('pry')
 
   Merchant.delete_all()
+  Tag.delete_all()
 
   merchant1 = Merchant.new({
     'name' => 'Amazon'
@@ -15,18 +17,22 @@ require('pry')
     'name' => 'Game'
     })
   merchant3.save()
-binding.pry
+
 
 tag1 = Tag.new({
   'name' => 'groceries'
 })
-
+tag1.save()
 tag2 = Tag.new({
   'name' => 'misc'
   })
-
+tag2.save()
 tag3 = Tag.new({
   'name' => 'entertainment'
   })
+tag3.save()
 
+
+
+binding.pry
 nil
