@@ -29,8 +29,28 @@ def save
 end
 
 def update
-
+  sql =
+  "
+  UPDATE tags
+  SET name =
+  $1
+  WHERE id = $2
+  "
+  values = [@name, @id]
+  SqlRunner.run(sql, values)
 end
 
+def self.all()
+  sql =
+  "
+  SELECT * FROM tags;
+  "
+  tags = SqlRunner.run(sql)
+  return tags.map {|tag| Tag.new(tag)}
+end
+
+def method_name
+
+end
 
 end
