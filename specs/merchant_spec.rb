@@ -2,7 +2,7 @@ require('minitest/autorun')
 require('minitest/reporters')
 require_relative('../models/merchant')
 
-MiniTest::Reporters.use! MiniTest::Reporters::SpecRerporter.new
+MiniTest::Reporters.use! MiniTest::Reporters::SpecReporter.new
 
 class MerchantTest < MiniTest::Test
 
