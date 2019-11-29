@@ -5,13 +5,13 @@ DROP TABLE tags;
 CREATE TABLE merchants
 (
   id SERIAL8 PRIMARY KEY,
-  name VARCHAR not null
+  merchant_name VARCHAR not null
 );
 
 CREATE TABLE tags
 (
   id SERIAL8 PRIMARY KEY,
-  name VARCHAR not null
+  tag_name VARCHAR not null
 );
 
 CREATE TABLE transactions
@@ -22,3 +22,18 @@ CREATE TABLE transactions
   date_of_transaction DATE,
   amount DECIMAL(4,2)
 );
+
+
+
+
+SELECT
+merchants.merchant_name,
+tags.tag_name,
+transactions.amount,
+transactions.date_of_transaction
+FROM transactions
+INNER JOIN merchants
+ON merchants.id = transactions.merchant_id
+INNER JOIN tags
+ON tags.id = transactions.tag_id
+ORDER BY merchants.merchant_name;

@@ -24,7 +24,7 @@ class Merchant
     sql = "
     INSERT INTO merchants
     (
-      name
+      merchant_name
     )
     VALUES
     (
@@ -63,7 +63,7 @@ class Merchant
     sql =
     "
     UPDATE merchants
-    SET name =
+    SET merchant_name =
     $1
     WHERE id = $2
     "

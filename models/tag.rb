@@ -19,7 +19,7 @@ def save
   sql =
   "
   INSERT INTO tags
-  (name)
+  (tag_name)
   VALUES ($1)
   RETURNING id
   "
@@ -32,7 +32,7 @@ def update
   sql =
   "
   UPDATE tags
-  SET name =
+  SET tag_name =
   $1
   WHERE id = $2
   "
