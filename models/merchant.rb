@@ -35,9 +35,11 @@ class Merchant
     values = [@name]
     results = SqlRunner.run(sql, values)
     #the RETURNING sql command is bringing back the id
-    #the returned id is then assigned to the instance
-    #because SQL always returns an array of hashes, we want to access
-    #the first element of the array, then the key 'id' as
+    #because SQL always returns an array of hashes, it will return
+    # the id inside an array, contained within a hash
+    # we want to access both the array and the hash to store the
+    # id into @id instance variable
+    # #the first element of the array, then the key 'id' as
     #as that is what parameters that the Merchant object takes
     @id = results.first()['id'].to_i
   end
