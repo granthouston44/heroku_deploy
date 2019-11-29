@@ -17,4 +17,16 @@ require('pry')
   merchant3.save()
 binding.pry
 
+tag1 = Tag.new({
+  'name' => 'groceries'
+})
+
+tag2 = Tag.new({
+  'name' => 'misc'
+  })
+
+tag3 = Tag.new({
+  'name' => 'entertainment'
+  })
+
 nil
