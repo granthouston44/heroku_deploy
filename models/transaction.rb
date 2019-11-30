@@ -1,6 +1,7 @@
 require_relative('../db/sql_runner')
 require_relative('./tag')
 require_relative('./merchant')
+require('pry')
 
 class Transaction
 
@@ -11,7 +12,7 @@ class Transaction
   def initialize(transaction_details)
     @id = transaction_details['id'].to_i if transaction_details['id']
     @amount = transaction_details['amount']
-    @date = transaction_details['date_of_transaction']
+    @date = transaction_details['date_of_transaction'] if transaction_details['date_of_transaction']
     @merchant_id = transaction_details['merchant_id']
     @tag_id = transaction_details['tag_id']
   end
@@ -30,11 +31,12 @@ class Transaction
     (
       $1,$2,CURRENT_DATE,$3
     )
-    RETURNING id
+    RETURNING id, CURRENT_DATE
     "
     values = [@merchant_id,@tag_id,@amount]
     result = SqlRunner.run(sql,values)
     @id = result.first()['id'].to_i
+    @date = result.first['current_date']
   end
 
   def self.all()

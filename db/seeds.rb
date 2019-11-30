@@ -101,20 +101,5 @@ transaction5.save()
   transaction6.save()
 
 
-#potential use for sorting by order
-# transactions = Transaction.all
-# for transaction in transactions
-# p transaction.merchant.name
-# p transaction.tag.name
-# end
-
-
-# #playing about with this
-# p transactions.map do |transaction|
-# transaction.merchant.name
-# transaction.tag.name
-# transaction.amount
-# transaction.date
-
 binding.pry
 nil
