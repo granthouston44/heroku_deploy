@@ -1,1 +1,18 @@
-<h1>test</h1>
+<h1>Add your transaction details</h1>
+
+<form action="/" metohd="post">
+<label>
+  Choose existing Merchant:
+  <select name="merchant_id">
+    <% @merchants.uniq! {|merchant| merchant.merchant_name}  %>
+    <% for merchant in @merchants %>
+    <option value="<%= merchant.id %>"><%= merchant.merchant_name %></option>
+    <% end  %>
+  </select>
+</label>
+
+
+
+<input class="bt btn--action" type='submit' value="Add">
+
+</form>

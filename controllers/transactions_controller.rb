@@ -5,8 +5,11 @@ require_relative('../models/tag')
 
 
 get '/transactions/new' do
+  @merchants = Merchant.all
+  @tags = Tag.all
   erb(:"transactions/new")
 end
+
 
 get '/transactions/merchant' do
   @transactions = Transaction.sort_by_merchant
