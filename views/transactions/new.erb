@@ -11,6 +11,20 @@
   </select>
 </label>
 
+<label>
+  Add a tag:
+  <select name="tag_id" id="">
+    <% @tags.uniq! {|tag| tag.tag_name}  %>
+    <% for tag in @tags %>
+    <option value="<%= tag.id %>"><%= tag.tag_name %></option>
+    <% end  %>
+
+  </select>
+
+
+
+</label>
+
 
 
 <input class="bt btn--action" type='submit' value="Add">
