@@ -14,5 +14,6 @@ get '/transactions/merchant' do
 end
 
 get '/transactions/tag' do
+  @transactions = Transaction.sort_by_tag
   erb(:"transactions/tag")
 end

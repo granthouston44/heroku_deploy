@@ -128,7 +128,7 @@ class Transaction
       end
     end
 
-    def self.sort_by_tags
+    def self.sort_by_tag
       sql =
       "
       SELECT
