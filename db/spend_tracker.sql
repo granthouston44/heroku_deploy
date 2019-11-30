@@ -22,18 +22,3 @@ CREATE TABLE transactions
   date_of_transaction DATE,
   amount DECIMAL(4,2)
 );
-
-
-
-
-SELECT
-merchants.merchant_name,
-tags.tag_name,
-transactions.amount,
-transactions.date_of_transaction
-FROM transactions
-INNER JOIN merchants
-ON merchants.id = transactions.merchant_id
-INNER JOIN tags
-ON tags.id = transactions.tag_id
-ORDER BY merchants.merchant_name;
