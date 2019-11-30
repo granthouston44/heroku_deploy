@@ -1,1 +1,11 @@
 <h1>Lets track that bread you get!</h1>
+
+<hr/>
+<% for transaction in @transactions %>
+<p>Merchant: <%= transaction.merchant().merchant_name%></p>
+<p>Amount: <%= transaction.amount%> </p>
+<p>Date: <%= transaction.date %></p>
+<p>Tag: <%= transaction.tag().tag_name %></p>
+<hr/>
+
+<% end  %>

@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Merchant
 
-  attr_accessor :name
+  attr_accessor :merchant_name
 
   #don't change as it is linked to the db
   attr_reader :id
@@ -12,7 +12,7 @@ class Merchant
     #right key for the relevant property
     #if there is an id, get the value and make sure it is an int
     @id = merchant_details['id'].to_i if merchant_details['id']
-    @name = merchant_details['name']
+    @merchant_name = merchant_details['merchant_name']
   end
 
   def self.delete_all()
@@ -32,7 +32,7 @@ class Merchant
     )
     RETURNING id
     "
-    values = [@name]
+    values = [@merchant_name]
     results = SqlRunner.run(sql, values)
     #the RETURNING sql command is bringing back the id
     #because SQL always returns an array of hashes, it will return
@@ -67,7 +67,7 @@ class Merchant
     $1
     WHERE id = $2
     "
-    values = [@name, @id]
+    values = [@merchant_name, @id]
     SqlRunner.run(sql,values)
   end
 

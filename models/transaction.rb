@@ -94,64 +94,64 @@ class Transaction
       return Tag.new(result.first)
     end
 
-    def self.sort_by_merchant
-      sql =
-      #code that brings back an SQL table containing the merchant name and tag name,
-      #not jsut the ids, as well as amount and date of transaction
-      "
-      SELECT
-      merchants.merchant_name,
-      tags.tag_name,
-      transactions.amount,
-      transactions.date_of_transaction
-      FROM transactions
-      INNER JOIN merchants
-      ON merchants.id = transactions.merchant_id
-
-      INNER JOIN tags
-      ON tags.id = transactions.tag_id
-
-      ORDER BY merchants.merchant_name;
-      "
-
-      result = SqlRunner.run(sql)
-      #brings back an array of hashes with all the correct strings needed
-      #as a new transaction object normally takes a merchant/tag_id as an integer
-      #the result array of hashes would return nil for those properties
-      #we can access the result hash first though and set the string of the name
-      # equal to the nil merchant/tag id key so that we now have a transaction object
-      # that contains the full name of each merchant/tag
-      result.map do |transaction|
-        transaction['merchant_id'] = transaction['merchant_name']
-        transaction['tag_id'] = transaction['tag_name']
-        Transaction.new(transaction)
-      end
-    end
-
-    def self.sort_by_tags
-      sql =
-      "
-      SELECT
-      merchants.merchant_name,
-      tags.tag_name,
-      transactions.amount,
-      transactions.date_of_transaction
-      FROM transactions
-      INNER JOIN merchants
-      ON merchants.id = transactions.merchant_id
-
-      INNER JOIN tags
-      ON tags.id = transactions.tag_id
-
-      ORDER BY tags.tag_name;
-      "
-
-      result = SqlRunner.run(sql)
-      result.map do |transaction|
-        transaction['merchant_id'] = transaction['merchant_name']
-        transaction['tag_id'] = transaction['tag_name']
-        Transaction.new(transaction)
-      end
-    end
+    # def self.sort_by_merchant
+    #   sql =
+    #   #code that brings back an SQL table containing the merchant name and tag name,
+    #   #not jsut the ids, as well as amount and date of transaction
+    #   "
+    #   SELECT
+    #   merchants.merchant_name,
+    #   tags.tag_name,
+    #   transactions.amount,
+    #   transactions.date_of_transaction
+    #   FROM transactions
+    #   INNER JOIN merchants
+    #   ON merchants.id = transactions.merchant_id
+    #
+    #   INNER JOIN tags
+    #   ON tags.id = transactions.tag_id
+    #
+    #   ORDER BY merchants.merchant_name;
+    #   "
+    #
+    #   result = SqlRunner.run(sql)
+    #   #brings back an array of hashes with all the correct strings needed
+    #   #as a new transaction object normally takes a merchant/tag_id as an integer
+    #   #the result array of hashes would return nil for those properties
+    #   #we can access the result hash first though and set the string of the name
+    #   # equal to the nil merchant/tag id key so that we now have a transaction object
+    #   # that contains the full name of each merchant/tag
+    #   result.map do |transaction|
+    #     transaction['merchant_id'] = transaction['merchant_name']
+    #     transaction['tag_id'] = transaction['tag_name']
+    #     Transaction.new(transaction)
+    #   end
+    # end
+    #
+    # def self.sort_by_tags
+    #   sql =
+    #   "
+    #   SELECT
+    #   merchants.merchant_name,
+    #   tags.tag_name,
+    #   transactions.amount,
+    #   transactions.date_of_transaction
+    #   FROM transactions
+    #   INNER JOIN merchants
+    #   ON merchants.id = transactions.merchant_id
+    #
+    #   INNER JOIN tags
+    #   ON tags.id = transactions.tag_id
+    #
+    #   ORDER BY tags.tag_name;
+    #   "
+    #
+    #   result = SqlRunner.run(sql)
+    #   result.map do |transaction|
+    #     transaction['merchant_id'] = transaction['merchant_name']
+    #     transaction['tag_id'] = transaction['tag_name']
+    #     Transaction.new(transaction)
+    #   end
+    # end
 
 end
