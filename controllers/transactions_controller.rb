@@ -9,6 +9,7 @@ get '/transactions/new' do
 end
 
 get '/transactions/merchant' do
+  @transactions = Transaction.sort_by_merchant
   erb(:"transactions/merchant")
 end
 
