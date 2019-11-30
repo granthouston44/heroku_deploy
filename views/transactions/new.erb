@@ -1,6 +1,6 @@
 <h1>Add your transaction details</h1>
 
-<form action="/" metohd="post">
+<form action="/transactions" method="post">
 <label>
   Choose existing Merchant:
   <select name="merchant_id">
@@ -22,15 +22,8 @@
 
 <label>
 Amount:
-<input type="number">
-  
+<input type="number" name="amount" value="amount" step=".01">
 </label>
-
-
-
-</label>
-
-
 
 <input class="bt btn--action" type='submit' value="Add">
 
