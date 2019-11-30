@@ -1,10 +1,8 @@
 require('sinatra')
 require('sinatra/contrib/all')
-
-require_relative('./models/transaction')
-require_relative('./models/merchant')
-require_relative('./models/tag')
 also_reload('./models/*')
+
+require_relative("./controllers/transactions_controller")
 
 get '/' do
   @transactions = Transaction.all
