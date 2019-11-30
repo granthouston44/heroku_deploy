@@ -20,5 +20,5 @@ CREATE TABLE transactions
   merchant_id INT REFERENCES merchants(id),
   tag_id INT REFERENCES tags(id),
   date_of_transaction DATE,
-  amount DECIMAL(4,2)
+  amount DECIMAL(6,2)
 );

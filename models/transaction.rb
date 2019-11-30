@@ -72,7 +72,7 @@ class Transaction
       )
       WHERE id = $5
       "
-      values = [@merchant_id,@tag_id,@date_of_transaction,@amount,@id]
+      values = [@merchant_id,@tag_id,@date,@amount,@id]
       SqlRunner.run(sql,values)
     end
 
