@@ -2,12 +2,6 @@ require_relative('../models/transaction')
 require_relative('../models/merchant')
 require_relative('../models/tag')
 
-
-# get '/transactions/' do
-#   @transactions = Transaction.all
-# erb(:"transactions/index")
-# end
-
 get '/transactions/new' do
   @merchants = Merchant.all
   @tags = Tag.all
@@ -18,6 +12,11 @@ post '/transactions' do
   transaction = Transaction.new(params)
   transaction.save()
   redirect "/"
+end
+
+post '/transactions/:id/delete' do
+Transaction.delete(params[:id])
+redirect '/'
 end
 
 get '/transactions/merchant' do
