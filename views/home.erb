@@ -1,5 +1,11 @@
 <h1>Lets track that bread you get!</h1>
-
+<div class="dropdown">
+<button class="dropbtn">Sort by</button>
+  <div class = "dropdown-content">
+    <a href="/transactions/tag">Tag</a>
+    <a href="/transaction/merchant">Merchant</a>
+  </div>
+</div>
 <hr/>
 <% for transaction in @transactions %>
 <p>Merchant: <%= transaction.merchant().merchant_name%></p>
