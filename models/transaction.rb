@@ -156,4 +156,10 @@ class Transaction
       end
     end
 
+    def delete()
+
+    end
+
+    def self.find(id)
+
 end
