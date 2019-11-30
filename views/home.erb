@@ -1,4 +1,13 @@
 <h1>Lets track that bread you get!</h1>
+
+<div class="balance">
+  <% balance = 1000  %>
+  <% for transaction in @transactions  %>
+  <% balance -= transaction.amount.to_f %>
+  <% end %>
+  <%= balance %>
+</div>
+
 <div class="btn--wrapper">
 <a class ="btn btn--action" href="/transactions/new">New Transaction</a>
 </div>

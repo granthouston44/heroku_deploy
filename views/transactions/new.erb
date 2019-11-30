@@ -12,7 +12,12 @@
 </label>
 
 <label>
-  Add a tag:
+New Merchnat:
+  
+</label>
+
+<label>
+  Choose a tag:
   <select name="tag_id" id="">
     <% @tags.uniq! {|tag| tag.tag_name}  %>
     <% for tag in @tags %>
@@ -21,6 +26,13 @@
   </select>
 
 <label>
+
+<label>
+New tag:
+
+</label>
+
+
 Amount:
 <input type="number" name="amount" value="amount" step=".01">
 </label>
