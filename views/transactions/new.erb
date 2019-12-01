@@ -26,17 +26,19 @@ New Merchant:
   </select>
 
 <label>
-
-<label>
-New tag:
-
-</label>
-
-
 Amount:
 <input type="number" name="amount" value="amount" step=".01">
 </label>
 
+<input class="bt btn--action" type='submit' value="Add">
+
+</form>
+
+<form action="/transactions" method="POST">
+<label>
+New tag:
+<input type="text" name="tag_name" value="">
+</label>
 <input class="bt btn--action" type='submit' value="Add">
 
 </form>

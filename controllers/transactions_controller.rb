@@ -1,7 +1,7 @@
 require_relative('../models/transaction')
 require_relative('../models/merchant')
 require_relative('../models/tag')
-
+require('pry')
 
 get '/transactions/new' do
   @merchants = Merchant.all
@@ -10,10 +10,19 @@ get '/transactions/new' do
 end
 
 post '/transactions' do
-  transaction = Transaction.new(params)
-  transaction.save()
+  case
+  when params.size() == 3
+    transaction = Transaction.new(params)
+    transaction.save()
   redirect "/"
+  when params['tag_name']
+    tag = Tag.new(params)
+    tag.save()
+    redirect back
+  end
+
 end
+
 
 post '/transactions/:id/delete' do
 Transaction.delete(params[:id])
