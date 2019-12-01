@@ -10,15 +10,23 @@ get '/transactions/new' do
 end
 
 post '/transactions' do
+  
   case
+
   when params.size() == 3
+
     transaction = Transaction.new(params)
     transaction.save()
   redirect "/"
-  when params['tag_name']
+when params['tag_name'] != ""
     tag = Tag.new(params)
     tag.save()
     redirect back
+  when params['merchant_name'] != ""
+    merchant = Merchant.new(params)
+    merchant.save()
+    redirect back
+
   end
 
 end

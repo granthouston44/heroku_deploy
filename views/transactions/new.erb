@@ -13,8 +13,11 @@
 
 <label>
 New Merchant:
-
+<input type="text" name="merchant_name" value="">
 </label>
+<input class="bt btn--action" type='submit' value="Add merchant">
+
+
 
 <label>
   Choose existing tag:
@@ -24,21 +27,17 @@ New Merchant:
     <option value="<%= tag.id %>"><%= tag.tag_name %></option>
     <% end  %>
   </select>
+  <label>
+  New tag:
+  <input type="text" name="tag_name" value="">
+  </label>
+  <input class="bt btn--action" type='submit' value="Add tag">
 
 <label>
 Amount:
 <input type="number" name="amount" value="amount" step=".01">
 </label>
 
-<input class="bt btn--action" type='submit' value="Add">
-
-</form>
-
-<form action="/transactions" method="POST">
-<label>
-New tag:
-<input type="text" name="tag_name" value="">
-</label>
 <input class="bt btn--action" type='submit' value="Add">
 
 </form>
