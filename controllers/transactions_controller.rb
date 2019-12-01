@@ -22,7 +22,7 @@ end
 
 get '/transactions/:id/edit' do
   id = params[:id].to_i
-  @transaction = Transaction.find(id)
+  @transactions = Transaction.find(id)
   @merchants = Merchant.all
   @tags = Tag.all
   erb(:"transactions/edit")
