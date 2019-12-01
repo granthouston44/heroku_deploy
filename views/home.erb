@@ -9,10 +9,10 @@
 </div>
 
 <div class="btn--wrapper">
-<a class ="btn btn--action" href="/transactions/new">New Transaction</a>
+  <a class ="btn btn--action" href="/transactions/new">New Transaction</a>
 </div>
 <div class="dropdown">
-<button class="dropbtn">Sort by</button>
+  <button class="dropbtn">Sort by</button>
   <div class = "dropdown-content">
     <a href="transactions/tag">Tag</a>
     <a href="transactions/merchant">Merchant</a>
@@ -21,6 +21,7 @@
 </div>
 
 <label>
+  <form action=""></form>
   Filter by Merchant:
   <select name="merchant_id">
     <% @merchants.uniq! {|merchant| merchant.merchant_name}  %>
@@ -28,6 +29,7 @@
     <option value="<%= merchant.id %>"><%= merchant.merchant_name %></option>
     <% end  %>
   </select>
+  <input class="bt btn--action" type='submit' value="Filter">
 </label>
 
 <label>
@@ -38,17 +40,19 @@
     <option value="<%= tag.id %>"><%= tag.tag_name %></option>
     <% end  %>
   </select>
-  <label>
+  <input class="bt btn--action" type='submit' value="Filter">
+</label>
 
-    <label>
-      Filter by Date:
-      <select name="date_of_transaction" id="">
-        <% uniq = @transactions.uniq {|transaction| transaction.date}  %>
-        <% for transaction in uniq %>
-        <option value="<%= transaction.id %>"><%= transaction.date %></option>
-        <% end  %>
-      </select>
-      <label>
+<label>
+  Filter by Date:
+  <select name="date_of_transaction" id="">
+    <% uniq = @transactions.uniq {|transaction| transaction.date}  %>
+    <% for transaction in uniq %>
+    <option value="<%= transaction.id %>"><%= transaction.date %></option>
+    <% end  %>
+  </select>
+  <input class="bt btn--action" type='submit' value="Filter">
+</label>
 
 <hr/>
 <% for transaction in @transactions %>
