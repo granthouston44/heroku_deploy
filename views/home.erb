@@ -19,12 +19,44 @@
     <a href="transactions/date">Date</a>
   </div>
 </div>
+
+<label>
+  Filter by Merchant:
+  <select name="merchant_id">
+    <% @merchants.uniq! {|merchant| merchant.merchant_name}  %>
+    <% for merchant in @merchants %>
+    <option value="<%= merchant.id %>"><%= merchant.merchant_name %></option>
+    <% end  %>
+  </select>
+</label>
+
+<label>
+  Filter by Tag:
+  <select name="tag_id" id="">
+    <% @tags.uniq! {|tag| tag.tag_name}  %>
+    <% for tag in @tags %>
+    <option value="<%= tag.id %>"><%= tag.tag_name %></option>
+    <% end  %>
+  </select>
+  <label>
+
+    <label>
+      Filter by Date:
+      <select name="date_of_transaction" id="">
+        <% uniq = @transactions.uniq {|transaction| transaction.date}  %>
+        <% for transaction in uniq %>
+        <option value="<%= transaction.id %>"><%= transaction.date %></option>
+        <% end  %>
+      </select>
+      <label>
+
 <hr/>
 <% for transaction in @transactions %>
-<p>Merchant: <%= transaction.merchant().merchant_name%></p>
+<p>Merchant: <%= transaction.merchant_id%></p>
 <p>Amount: <%= transaction.amount%> </p>
 <p>Date: <%= transaction.date %></p>
-<p>Tag: <%= transaction.tag().tag_name %></p>
+<p>Tag: <%= transaction.tag_id %></p>
+
 <div class="delete">
   <form action="/transactions/<%= transaction.id %>/delete" method="POST">
     <input class="btn btn--danger" type="submit" value="delete"/>
@@ -36,5 +68,4 @@
   </form>
 </div>
 <hr/>
-
 <% end  %>
