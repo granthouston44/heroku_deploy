@@ -20,6 +20,14 @@ Transaction.delete(params[:id])
 redirect '/'
 end
 
+get '/transactions/:id/edit' do
+  id = params[:id].to_i
+  @transaction = Transaction.find(id)
+  @merchants = Merchant.all
+  @tags = Tag.all
+  erb(:"transactions/edit")
+end
+
 get '/transactions/merchant' do
   @transactions = Transaction.sort_by_merchant
   erb(:"transactions/merchant")
