@@ -206,7 +206,7 @@ class Transaction
     SqlRunner.run(sql, values)
     end
 
-    def self.filter_merchant(merchant)
+    def self.filter_merchant(merchant_id)
       sql =
       "
       SELECT
@@ -222,11 +222,11 @@ class Transaction
       INNER JOIN tags
       ON tags.id = transactions.tag_id
 
-      WHERE merchant_name = $1
+      WHERE merchant_id = $1
       ORDER BY TO_DATE(transactions.date_of_transaction,'DD-MM-YYY') DESC
       ;
       "
-      values = [merchant]
+      values = [merchant_id]
       result = SqlRunner.run(sql,values)
       result.map do |transaction|
         transaction['merchant_id'] = transaction['merchant_name']

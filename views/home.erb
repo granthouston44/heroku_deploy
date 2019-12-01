@@ -21,15 +21,16 @@
 </div>
 
 <label>
-  <form action=""></form>
+  <form action="/transactions/filter-merchant/2">
   Filter by Merchant:
   <select name="merchant_id">
     <% @merchants.uniq! {|merchant| merchant.merchant_name}  %>
     <% for merchant in @merchants %>
-    <option value="<%= merchant.id %>"><%= merchant.merchant_name %></option>
+    <option value="<%= @filtered = merchant.id %>"><%= merchant.merchant_name %></option>
     <% end  %>
   </select>
   <input class="bt btn--action" type='submit' value="Filter">
+  </form>
 </label>
 
 <label>

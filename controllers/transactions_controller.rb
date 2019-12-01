@@ -30,25 +30,6 @@ post '/transactions' do
 end
 
 
-post '/transactions/:id/delete' do
-  Transaction.delete(params[:id])
-  redirect back
-end
-
-get '/transactions/:id/edit' do
-  id = params[:id].to_i
-  @transactions = Transaction.find(id)
-  @merchants = Merchant.all
-  @tags = Tag.all
-  erb(:"transactions/edit")
-end
-
-post '/transactions/:id' do
-  transaction = Transaction.new(params)
-  transaction.update
-  redirect '/'
-end
-
 get '/transactions/merchant' do
   @transactions = Transaction.sort_by_merchant
   erb(:"transactions/merchant")
@@ -64,7 +45,29 @@ get '/transactions/date' do
   erb(:"transactions/date")
 end
 
-get '/transactions/filter-merchant' do
-  @transactions = Transaction.sort_by(params)
+get '/transactions/filter-merchant/:id' do
+  binding.pry
+  id = params['merchant_id'].to_i
+  @transactions = Transaction.filter_merchant(id)
   erb(:"transactions/filter_merchant")
+end
+
+post '/transactions/:id' do
+  transaction = Transaction.new(params)
+  transaction.update
+  redirect '/'
+end
+
+post '/transactions/:id/delete' do
+  Transaction.delete(params[:id])
+  redirect back
+end
+
+get '/transactions/:id/edit' do
+
+  id = params[:id].to_i
+  @transactions = Transaction.find(id)
+  @merchants = Merchant.all
+  @tags = Tag.all
+  erb(:"transactions/edit")
 end
