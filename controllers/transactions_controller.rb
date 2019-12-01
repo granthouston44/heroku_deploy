@@ -61,4 +61,5 @@ end
 
 get '/transactions/date' do
   @transactions = Transaction.sort_by_date
+  erb(:"transactions/date")
 end
