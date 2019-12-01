@@ -17,7 +17,7 @@ end
 
 post '/transactions/:id/delete' do
 Transaction.delete(params[:id])
-redirect '/'
+redirect back
 end
 
 get '/transactions/:id/edit' do
@@ -26,6 +26,7 @@ get '/transactions/:id/edit' do
   @merchants = Merchant.all
   @tags = Tag.all
   erb(:"transactions/edit")
+
 end
 
 post '/transactions/:id' do

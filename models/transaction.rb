@@ -115,6 +115,7 @@ class Transaction
       SELECT
       merchants.merchant_name,
       tags.tag_name,
+      transactions.id,
       transactions.amount,
       transactions.date_of_transaction
       FROM transactions
@@ -147,6 +148,7 @@ class Transaction
       SELECT
       merchants.merchant_name,
       tags.tag_name,
+      transactions.id,
       transactions.amount,
       transactions.date_of_transaction
       FROM transactions

@@ -15,6 +15,18 @@
 <p>Amount: <%= transaction.amount%> </p>
 <p>Date: <%= transaction.date %></p>
 <p>Tag: <%= transaction.tag_id %></p>
+
+<div class="delete">
+  <form action="/transactions/<%= transaction.id %>/delete" method="POST">
+    <input class="btn btn--danger" type="submit" value="delete"/>
+  </form>
+</div>
+<div class="edit">
+  <form action="/transactions/<%= transaction.id %>/edit">
+    <button type="submit">Edit transaction</button>
+  </form>
+</div>
+
 <hr/>
 
 <% end  %>
