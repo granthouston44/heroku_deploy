@@ -1,1 +1,53 @@
-<h1>test</h1>
+<form action="/transactions/<%= @transaction.id %>" method="POST">
+
+<label for="transaction"></label>
+
+<h1>Edit your transaction details</h1>
+
+<label>
+  Choose existing Merchant:
+  <select name="merchant_id">
+    <% @merchants.uniq! {|merchant| merchant.merchant_name}  %>
+    <% for merchant in @merchants %>
+    <option value="<%= merchant.id %>"><%= merchant.merchant_name %></option>
+    <% end  %>
+  </select>
+</label>
+
+<label>
+New Merchant:
+
+</label>
+
+<label>
+  Choose existing tag:
+  <select name="tag_id" id="">
+    <% @tags.uniq! {|tag| tag.tag_name}  %>
+    <% for tag in @tags %>
+    <option value="<%= tag.id %>"><%= tag.tag_name %></option>
+    <% end  %>
+  </select>
+
+<label>
+
+<label>
+New tag:
+
+</label>
+
+
+Amount:
+<input type="number" name="amount" value="amount" step=".01">
+</label>
+
+<input class="bt btn--action" type='submit' value="Update">
+
+</form>
+
+
+
+
+
+
+
+</form>

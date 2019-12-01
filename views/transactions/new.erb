@@ -12,12 +12,12 @@
 </label>
 
 <label>
-New Merchnat:
-  
+New Merchant:
+
 </label>
 
 <label>
-  Choose a tag:
+  Choose existing tag:
   <select name="tag_id" id="">
     <% @tags.uniq! {|tag| tag.tag_name}  %>
     <% for tag in @tags %>
