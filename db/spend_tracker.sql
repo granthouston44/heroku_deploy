@@ -22,7 +22,3 @@ CREATE TABLE transactions
   date_of_transaction VARCHAR,
   amount DECIMAL(6,2)
 );
-
-
-
-SELECT *, to_char( date_of_transaction, 'DD-MON-YYYY') as formatted_date from transactions
