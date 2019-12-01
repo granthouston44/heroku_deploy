@@ -1,6 +1,6 @@
 <h1>Lets track that bread you get!</h1>
 
-<div class="balance">
+<div class="balance-amount">
   <% balance = 1000  %>
   <% for transaction in @transactions  %>
   <% balance -= transaction.amount.to_f %>
@@ -22,7 +22,7 @@
 <% for transaction in @transactions %>
 <p>Merchant: <%= transaction.merchant().merchant_name%></p>
 <p>Amount: <%= transaction.amount%> </p>
-<p>Date: <%= transaction.date %></p>
+<p>Date: <%= transaction.date.reverse %></p>
 <p>Tag: <%= transaction.tag().tag_name %></p>
 <div class="delete">
   <form action="/transactions/<%= transaction.id %>/delete" method="POST">

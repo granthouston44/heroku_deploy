@@ -19,6 +19,10 @@ CREATE TABLE transactions
   id SERIAL8 PRIMARY KEY,
   merchant_id INT REFERENCES merchants(id),
   tag_id INT REFERENCES tags(id),
-  date_of_transaction DATE,
+  date_of_transaction VARCHAR,
   amount DECIMAL(6,2)
 );
+
+
+
+SELECT *, to_char( date_of_transaction, 'DD-MON-YYYY') as formatted_date from transactions

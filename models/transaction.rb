@@ -29,14 +29,14 @@ class Transaction
     )
     VALUES
     (
-      $1,$2,CURRENT_DATE,$3
+      $1,$2,to_char(CURRENT_DATE, 'DD-MM-YYYY'),$3
     )
-    RETURNING id, CURRENT_DATE
+    RETURNING id, date_of_transaction
     "
     values = [@merchant_id,@tag_id,@amount]
     result = SqlRunner.run(sql,values)
     @id = result.first()['id'].to_i
-    @date = result.first['current_date']
+    @date = result.first['date_of_transaction']
   end
 
   def self.all()
