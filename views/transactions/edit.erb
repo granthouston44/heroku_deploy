@@ -1,57 +1,51 @@
 <form action="/transactions/<%= @transactions.id %>" method="POST">
 
-<label for="transaction"></label>
+  <label for="transaction"></label>
 
-<h1>Edit your transaction details</h1>
+  <h1>Edit your transaction details</h1>
 
-<label>
-  Choose existing Merchant:
-  <select name="merchant_id">
-    <% @merchants.uniq! {|merchant| merchant.merchant_name}  %>
-    <% for merchant in @merchants %>
-    <option value="<%= merchant.id %>" <%= "selected" if @transactions.merchant.id == merchant.id %>>
-      <%= merchant.merchant_name %>
-    </option>
-    <% end  %>
-  </select>
-</label>
-
-<label>
-New Merchant:
-
-</label>
-
-<label>
-  Choose existing tag:
-  <select name="tag_id" id="">
-    <% @tags.uniq! {|tag| tag.tag_name}  %>
-    <% for tag in @tags %>
-    <option <%= "selected" if @transactions.tag.id == tag.id %> value="<%= tag.id %>">
-      <%= tag.tag_name %>
-    </option>
-    <% end  %>
-  </select>
-
-<label>
-
-<label>
-New tag:
-
-</label>
+  <label>
+    Choose existing Merchant:
+    <select name="merchant_id">
+      <% @merchants.uniq! {|merchant| merchant.merchant_name}  %>
+      <% for merchant in @merchants %>
+      <option value="<%= merchant.id %>" <%= "selected" if @transactions.merchant.id == merchant.id %>>
+        <%= merchant.merchant_name %>
+      </option>
+      <% end  %>
+    </select>
+  </label>
 
 
-Amount:
-<input type="number" name="amount" value="<%= @transactions.amount %>" step=".01">
-</label>
-
-<input class="bt btn--action" type='submit' value="Update">
-
-</form>
-
-
-
-
-
+  <label>
+    Choose existing tag:
+    <select name="tag_id" id="">
+      <% @tags.uniq! {|tag| tag.tag_name}  %>
+      <% for tag in @tags %>
+      <option <%= "selected" if @transactions.tag.id == tag.id %> value="<%= tag.id %>">
+        <%= tag.tag_name %>
+      </option>
+      <% end  %>
+    </select>
 
 
-</form>
+    <label>
+      Amount:
+      <input type="number" name="amount" value="<%= @transactions.amount %>" step=".01">
+    </label>
+
+    <input class="bt btn--action" type='submit' value="Update">
+
+  </form>
+
+  <label>
+  <form action="/transactions" method="POST">
+    New Merchant:
+    <input type="text" name="merchant_name" value="">
+    <input class="bt btn--action" type='submit' value="Add merchant">
+    New tag:
+    <input type="text" name="tag_name" value="">
+    <input class="bt btn--action" type='submit' value="Add tag">
+
+  </form>
+  </label>

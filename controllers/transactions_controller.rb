@@ -9,16 +9,16 @@ get '/transactions/new' do
   erb(:"transactions/new")
 end
 
+
 post '/transactions' do
-  
+
   case
-
+    
   when params.size() == 3
-
     transaction = Transaction.new(params)
     transaction.save()
-  redirect "/"
-when params['tag_name'] != ""
+    redirect "/"
+  when params['tag_name'] != ""
     tag = Tag.new(params)
     tag.save()
     redirect back
@@ -26,15 +26,13 @@ when params['tag_name'] != ""
     merchant = Merchant.new(params)
     merchant.save()
     redirect back
-
   end
-
 end
 
 
 post '/transactions/:id/delete' do
-Transaction.delete(params[:id])
-redirect back
+  Transaction.delete(params[:id])
+  redirect back
 end
 
 get '/transactions/:id/edit' do
@@ -43,7 +41,6 @@ get '/transactions/:id/edit' do
   @merchants = Merchant.all
   @tags = Tag.all
   erb(:"transactions/edit")
-
 end
 
 post '/transactions/:id' do
