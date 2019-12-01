@@ -206,4 +206,41 @@ class Transaction
     SqlRunner.run(sql, values)
     end
 
+    def self.filter_merchant(merchant)
+      sql =
+      "
+      SELECT
+      merchants.merchant_name,
+      tags.tag_name,
+      transactions.id,
+      transactions.amount,
+      transactions.date_of_transaction
+      FROM transactions
+      INNER JOIN merchants
+      ON merchants.id = transactions.merchant_id
+
+      INNER JOIN tags
+      ON tags.id = transactions.tag_id
+
+      WHERE merchant_name = $1
+      ORDER BY TO_DATE(transactions.date_of_transaction,'DD-MM-YYY') DESC
+      ;
+      "
+      values = [merchant]
+      result = SqlRunner.run(sql,values)
+      result.map do |transaction|
+        transaction['merchant_id'] = transaction['merchant_name']
+        transaction['tag_id'] = transaction['tag_name']
+        Transaction.new(transaction)
+      end
+    end
+
+    def self.filter_tag(tag)
+
+    end
+
+    def self.filter_date(date)
+
+    end
+
   end
