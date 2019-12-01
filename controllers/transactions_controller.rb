@@ -63,3 +63,8 @@ get '/transactions/date' do
   @transactions = Transaction.sort_by_date
   erb(:"transactions/date")
 end
+
+get '/transactions/filter-merchant' do
+  @transactions = Transaction.sort_by(params)
+  erb(:"transactions/filter_merchant")
+end
