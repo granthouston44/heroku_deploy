@@ -13,7 +13,7 @@ end
 post '/transactions' do
 
   case
-    
+
   when params.size() == 3
     transaction = Transaction.new(params)
     transaction.save()
@@ -57,4 +57,8 @@ end
 get '/transactions/tag' do
   @transactions = Transaction.sort_by_tag
   erb(:"transactions/tag")
+end
+
+get '/transactions/date' do
+  @transactions = Transaction.sort_by_date
 end
