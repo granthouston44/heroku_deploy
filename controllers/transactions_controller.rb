@@ -64,6 +64,14 @@ post '/transactions/filter-tag' do
 erb(:"home")
 end
 
+post '/transactions/filter-date' do
+id = params['date']
+@transactions = Transaction.filter_tag(date)
+@tags = Tag.all
+@merchants = Merchant.all
+erb(:"home")
+end
+
 post '/transactions/:id' do
   transaction = Transaction.new(params)
   transaction.update

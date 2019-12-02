@@ -46,6 +46,8 @@
 </label>
 
 <label>
+  <form action="/transactions/filter-date" method="POST">
+
   Filter by Date:
   <select name="date_of_transaction" id="">
     <% uniq = @transactions.uniq {|transaction| transaction.date}  %>
@@ -54,6 +56,7 @@
     <% end  %>
   </select>
   <input class="bt btn--action" type='submit' value="Filter">
+</form>
 </label>
 
 <hr/>
