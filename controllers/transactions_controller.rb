@@ -15,14 +15,15 @@ end
 post '/transactions' do
   case
   when params['tag_name'] != ""
-    tag = Tag.new(params)
+    tag = params.select {|k,v| k == "tag_name"}
+    tag = Tag.new(tag)
     tag.save()
-    params['tag_id'] = tag.id
     redirect back
   when params['merchant_name'] != ""
-    merchant = Merchant.new(params)
+
+    merchant = params.select {|k,v| k == "merchant_name"}
+    merchant = Merchant.new(merchant)
     merchant.save()
-    params['merchant_name'] = merchant.id
     redirect back
   when params
     transaction = Transaction.new(params)
@@ -84,6 +85,12 @@ post '/transactions/edit-merchant' do
   merchant = Merchant.find(id)
   merchant.merchant_name = params['merchant_name']
   merchant.update
+  redirect back
+end
+
+post '/transactions/add-merchant' do
+  merchant = Merchant.new(params[:merchant_name])
+  merchant.save()
   redirect back
 end
 
