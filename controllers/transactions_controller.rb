@@ -25,8 +25,14 @@ post '/transactions' do
     merchant.save()
     redirect back
   when params
-    transaction = Transaction.new(params)
+    transaction_hash = params.reject{ |k,v| k == 'date_of_transaction' }
+    transaction = Transaction.new(transaction_hash)
     transaction.save()
+    if params[:date_of_transaction] != ""
+      format_date = params[:date_of_transaction].unpack('A4xA2xA2').rotate.join('-')
+      transaction.date = format_date
+      transaction.update
+    end
     redirect "/"
   end
 end
@@ -60,27 +66,27 @@ end
 
 post '/transactions/filter-merchant'do
 
- id = params['merchant_id'].to_i
- @transactions = Transaction.filter_merchant(id)
- @tags = Tag.all
- @merchants = Merchant.all
- erb(:home)
+id = params['merchant_id'].to_i
+@transactions = Transaction.filter_merchant(id)
+@tags = Tag.all
+@merchants = Merchant.all
+erb(:home)
 end
 
 post '/transactions/filter-tag' do
   id = params['tag_id'].to_i
-@transactions = Transaction.filter_tag(id)
-@tags = Tag.all
-@merchants = Merchant.all
-erb(:"home")
+  @transactions = Transaction.filter_tag(id)
+  @tags = Tag.all
+  @merchants = Merchant.all
+  erb(:"home")
 end
 
 post '/transactions/filter-date' do
-id = params['date_of_transaction']
-@transactions = Transaction.filter_date(id)
-@tags = Tag.all
-@merchants = Merchant.all
-erb(:"home")
+  id = params['date_of_transaction']
+  @transactions = Transaction.filter_date(id)
+  @tags = Tag.all
+  @merchants = Merchant.all
+  erb(:"home")
 end
 
 post '/transactions/edit-merchant' do
