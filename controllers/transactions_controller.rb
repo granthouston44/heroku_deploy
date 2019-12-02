@@ -57,7 +57,9 @@ end
 
 get '/transactions/tag' do
   @transactions = Transaction.sort_by_tag
-  erb(:"transactions/tag")
+  @merchants = Merchant.all
+  @tags = Tag.all
+  erb(:"home")
 end
 
 get '/transactions/date' do
