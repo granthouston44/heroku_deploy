@@ -235,7 +235,7 @@ class Transaction
       end
     end
 
-    def self.filter_tag(tag)
+    def self.filter_tag(tag_id)
       sql =
       "
       SELECT
@@ -255,7 +255,7 @@ class Transaction
       ORDER BY TO_DATE(transactions.date_of_transaction,'DD-MM-YYY') DESC
       ;
       "
-      values = [merchant_id]
+      values = [tag_id]
       result = SqlRunner.run(sql,values)
       result.map do |transaction|
         transaction['merchant_id'] = transaction['merchant_name']

@@ -56,7 +56,13 @@ post '/transactions/filter-merchant'do
  erb(:home)
 end
 
-
+post '/transactions/filter-tag' do
+  id = params['tag_id'].to_i
+@transactions = Transaction.filter_tag(id)
+@tags = Tag.all
+@merchants = Merchant.all
+erb(:"home")
+end
 
 post '/transactions/:id' do
   transaction = Transaction.new(params)

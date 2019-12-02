@@ -33,6 +33,7 @@
 </label>
 
 <label>
+  <form action="/transactions/filter-tag" method="POST">
   Filter by Tag:
   <select name="tag_id" id="">
     <% @tags.uniq! {|tag| tag.tag_name}  %>
@@ -41,6 +42,7 @@
     <% end  %>
   </select>
   <input class="bt btn--action" type='submit' value="Filter">
+  </form>
 </label>
 
 <label>
