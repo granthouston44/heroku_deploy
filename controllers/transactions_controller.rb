@@ -45,12 +45,22 @@ get '/transactions/date' do
   erb(:"transactions/date")
 end
 
-get '/transactions/filter-merchant/:id' do
-  binding.pry
+get '/transactions/filter-merchant/' do
   id = params['merchant_id'].to_i
   @transactions = Transaction.filter_merchant(id)
   erb(:"transactions/filter_merchant")
 end
+
+post '/transactions/filter-merchant'do
+
+ id = params['merchant_id'].to_i
+ @transactions = Transaction.filter_merchant(id)
+ @tags = Tag.all
+ @merchants = Merchant.all
+ erb(:home)
+end
+
+
 
 post '/transactions/:id' do
   transaction = Transaction.new(params)

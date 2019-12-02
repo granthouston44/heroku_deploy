@@ -20,18 +20,6 @@ require('pry')
     'merchant_name' => 'Game'
     })
   merchant3.save()
-  merchant4 = Merchant.new({
-    'merchant_name' => 'Amazon'
-    })
-  merchant4.save()
-  merchant5 = Merchant.new({
-    'merchant_name' => 'Costco'
-    })
-  merchant5.save()
-  merchant6 = Merchant.new({
-    'merchant_name' => 'Game'
-    })
-  merchant6.save()
 
 
 
@@ -47,18 +35,7 @@ tag3 = Tag.new({
   'tag_name' => 'entertainment'
   })
 tag3.save()
-tag4 = Tag.new({
-  'tag_name' => 'groceries'
-})
-tag4.save()
-tag5 = Tag.new({
-  'tag_name' => 'misc'
-  })
-tag5.save()
-tag6 = Tag.new({
-  'tag_name' => 'entertainment'
-  })
-tag6.save()
+
 
 transaction1 = Transaction.new({
   'amount' => 3.50,
