@@ -7,7 +7,6 @@
   <label>
     Choose existing Merchant:
     <select name="merchant_id">
-      <% @merchants.uniq! {|merchant| merchant.merchant_name}  %>
       <% for merchant in @merchants %>
       <option value="<%= merchant.id %>" <%= "selected" if @transactions.merchant.id == merchant.id %>>
         <%= merchant.merchant_name %>
@@ -20,7 +19,6 @@
   <label>
     Choose existing tag:
     <select name="tag_id" id="">
-      <% @tags.uniq! {|tag| tag.tag_name}  %>
       <% for tag in @tags %>
       <option <%= "selected" if @transactions.tag.id == tag.id %> value="<%= tag.id %>">
         <%= tag.tag_name %>
