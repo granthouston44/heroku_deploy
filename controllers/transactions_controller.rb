@@ -29,8 +29,9 @@ post '/transactions' do
     transaction = Transaction.new(transaction_hash)
     transaction.save()
     if params[:date_of_transaction] != ""
-      format_date = params[:date_of_transaction].unpack('A4xA2xA2').rotate.join('-')
-      transaction.date = format_date
+      format_date = params[:date_of_transaction]
+      date = Date.strptime(format_date, '%Y-%m-%d')
+      transaction.date = date.strftime('%d-%m-%Y')
       transaction.update
     end
     redirect "/"
