@@ -1,0 +1,31 @@
+<form action="/transactions/edit-merchant" method="POST">
+
+
+
+  <h1>Edit Merchant details</h1>
+
+  <label>
+    Choose existing Merchant:
+    <select name="merchant_id">
+      <% for merchant in @merchants %>
+      <option value="<%= merchant.id %>">
+        <%= merchant.merchant_name %>
+      </option>
+      <% end  %>
+    </select>
+  </label>
+
+
+    <input class="bt btn--action" type='submit' value="Remove Merchant">
+
+  </form>
+
+  <label>
+  <form action="/transactions" method="POST">
+    New Merchant:
+    <input type="text" name="merchant_name" value="">
+    <input class="bt btn--action" type='submit' value="Add merchant">
+
+
+  </form>
+  </label>

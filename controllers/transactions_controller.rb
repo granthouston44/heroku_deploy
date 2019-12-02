@@ -32,6 +32,13 @@ post '/transactions' do
 end
 
 
+
+get '/transactions/edit-merchant' do
+  @merchants = Merchant.all()
+  erb(:"transactions/edit_merchant")
+end
+
+
 get '/transactions/merchant' do
   @transactions = Transaction.sort_by_merchant
   erb(:"transactions/merchant")

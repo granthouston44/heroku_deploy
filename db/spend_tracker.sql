@@ -5,13 +5,13 @@ DROP TABLE tags;
 CREATE TABLE merchants
 (
   id SERIAL8 PRIMARY KEY,
-  merchant_name VARCHAR not null
+  merchant_name VARCHAR
 );
 
 CREATE TABLE tags
 (
   id SERIAL8 PRIMARY KEY,
-  tag_name VARCHAR not null
+  tag_name VARCHAR 
 );
 
 CREATE TABLE transactions
