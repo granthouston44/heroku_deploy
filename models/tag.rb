@@ -49,8 +49,14 @@ def self.all()
   return tags.map {|tag| Tag.new(tag)}
 end
 
-def method_name
-
+def self.delete(id)
+  sql =
+  "
+  DELETE FROM tags
+  WHERE id = $1
+  "
+  values = [id]
+  SqlRunner.run(sql, values)
 end
 
 end
