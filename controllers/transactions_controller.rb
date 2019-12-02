@@ -39,6 +39,10 @@ get '/transactions/edit-merchant' do
   erb(:"transactions/edit_merchant")
 end
 
+get '/transactions/edit-tag' do
+  @tags = Tag.all
+  erb(:"transactions/edit_tag")
+end
 
 get '/transactions/merchant' do
   @transactions = Transaction.sort_by_merchant
