@@ -65,8 +65,8 @@ erb(:"home")
 end
 
 post '/transactions/filter-date' do
-id = params['date']
-@transactions = Transaction.filter_tag(date)
+id = params['date_of_transaction']
+@transactions = Transaction.filter_date(id)
 @tags = Tag.all
 @merchants = Merchant.all
 erb(:"home")
