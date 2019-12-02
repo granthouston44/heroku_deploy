@@ -89,7 +89,8 @@ post '/transactions/edit-merchant' do
 end
 
 post '/transactions/add-merchant' do
-  merchant = Merchant.new(params[:merchant_name])
+  merchant = params.select {|k,v| k == "merchant_name"}
+  merchant = Merchant.new(merchant)
   merchant.save()
   redirect back
 end
