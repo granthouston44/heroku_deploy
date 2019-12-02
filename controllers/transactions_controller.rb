@@ -20,7 +20,6 @@ post '/transactions' do
     tag.save()
     redirect back
   when params['merchant_name'] != ""
-
     merchant = params.select {|k,v| k == "merchant_name"}
     merchant = Merchant.new(merchant)
     merchant.save()
@@ -104,6 +103,13 @@ post '/transactions/add-merchant' do
   merchant = params.select {|k,v| k == "merchant_name"}
   merchant = Merchant.new(merchant)
   merchant.save()
+  redirect back
+end
+
+post '/transactions/add-tag' do
+  tag = params.select {|k,v| k == "tag_name"}
+  tag = Tag.new(tag)
+  tag.save()
   redirect back
 end
 
