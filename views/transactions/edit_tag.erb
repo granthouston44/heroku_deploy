@@ -1,0 +1,36 @@
+<form action="/transactions/edit-tag" method="POST">
+
+
+
+  <h1>Edit tag details</h1>
+
+  <label>
+    Choose existing tag:
+    <select name="tag_id">
+      <% for tag in @tags %>
+      <option value="<%= tag.id %>">
+        <%= tag.tag_name %>
+      </option>
+      <% end  %>
+    </select>
+  </label>
+
+
+  <div class="edit-tag">
+    Change to:
+    <input type="text" name="tag_name"/>
+      <input class="btn btn--danger" type="submit" value="Update tag"/>
+
+  </div>
+
+  </form>
+
+  <label>
+  <form action="/transactions/add-tag" method="POST">
+    New tag:
+    <input type="text" name="tag_name" value="">
+    <input class="bt btn--action" type='submit' value="Add tag">
+
+
+  </form>
+  </label>
