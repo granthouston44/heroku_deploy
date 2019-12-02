@@ -24,6 +24,7 @@
         <%= tag.tag_name %>
       </option>
       <% end  %>
+
     </select>
 
 
@@ -32,7 +33,18 @@
       <input type="number" name="amount" value="<%= @transactions.amount %>" step=".01">
     </label>
 
+    <label>
+      Date:
+      <input type="date" name="date_of_transaction" value=
+      <% date = Date.strptime(@transactions.date, '%d-%m-%Y')
+      @transactions.date = date.strftime('%Y-%m-%d')%>
+      "<%= @transactions.date %>">
+
+    </label>
+
     <input class="bt btn--action" type='submit' value="Update">
+
+
 
   </form>
 
