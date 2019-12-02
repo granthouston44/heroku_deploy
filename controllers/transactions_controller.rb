@@ -121,8 +121,15 @@ post '/transactions/add-tag' do
 end
 
 post '/transactions/:id' do
-  transaction = Transaction.new(params)
+  transaction_hash = params.reject{ |k,v| k == 'date_of_transaction' }
+  transaction = Transaction.new(transaction_hash)
   transaction.update
+  if params[:date_of_transaction] != ""
+    format_date = params[:date_of_transaction]
+    date = Date.strptime(format_date, '%Y-%m-%d')
+    transaction.date = date.strftime('%d-%m-%Y')
+    transaction.update
+  end
   redirect '/'
 end
 
