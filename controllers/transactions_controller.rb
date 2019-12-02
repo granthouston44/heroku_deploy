@@ -79,6 +79,14 @@ id = params['date_of_transaction']
 erb(:"home")
 end
 
+post '/transactions/edit-merchant' do
+  id = params[:merchant_id].to_i
+  merchant = Merchant.find(id)
+  merchant.merchant_name = params['merchant_name']
+  merchant.update
+  redirect back
+end
+
 post '/transactions/:id' do
   transaction = Transaction.new(params)
   transaction.update
@@ -89,6 +97,7 @@ post '/transactions/:id/delete' do
   Transaction.delete(params[:id])
   redirect back
 end
+
 
 get '/transactions/:id/edit' do
 
