@@ -2,30 +2,32 @@ require_relative('../models/transaction')
 require_relative('../models/merchant')
 require_relative('../models/tag')
 require('pry')
+require_relative('../app.rb')
 
+#new
 get '/transactions/new' do
   @merchants = Merchant.all
   @tags = Tag.all
   erb(:"transactions/new")
 end
 
-
+#create
 post '/transactions' do
-
   case
-
-  when params.size() == 3
-    transaction = Transaction.new(params)
-    transaction.save()
-    redirect "/"
   when params['tag_name'] != ""
     tag = Tag.new(params)
     tag.save()
+    params['tag_id'] = tag.id
     redirect back
   when params['merchant_name'] != ""
     merchant = Merchant.new(params)
     merchant.save()
+    params['merchant_name'] = merchant.id
     redirect back
+  when params
+    transaction = Transaction.new(params)
+    transaction.save()
+    redirect "/"
   end
 end
 
@@ -43,12 +45,6 @@ end
 get '/transactions/date' do
   @transactions = Transaction.sort_by_date
   erb(:"transactions/date")
-end
-
-get '/transactions/filter-merchant/' do
-  id = params['merchant_id'].to_i
-  @transactions = Transaction.filter_merchant(id)
-  erb(:"transactions/filter_merchant")
 end
 
 post '/transactions/filter-merchant'do

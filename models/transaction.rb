@@ -197,13 +197,13 @@ class Transaction
     end
 
     def self.delete(id)
-    sql =
-    "
-    DELETE FROM transactions
-    WHERE id = $1
-    "
-    values = [id]
-    SqlRunner.run(sql, values)
+      sql =
+      "
+      DELETE FROM transactions
+      WHERE id = $1
+      "
+      values = [id]
+      SqlRunner.run(sql, values)
     end
 
     def self.filter_merchant(merchant_id)
