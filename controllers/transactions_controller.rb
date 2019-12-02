@@ -92,6 +92,14 @@ post '/transactions/edit-merchant' do
   redirect back
 end
 
+post '/transactions/edit-tag' do
+  id = params[:tag_id].to_i
+  tag = Tag.find(id)
+  tag.tag_name = params['tag_name']
+  tag.update
+  redirect back
+end
+
 post '/transactions/add-merchant' do
   merchant = params.select {|k,v| k == "merchant_name"}
   merchant = Merchant.new(merchant)
