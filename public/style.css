@@ -13,7 +13,8 @@
 a{
   text-decoration: none!important;
   cursor: pointer;
-  color:inherit;
+  color: inherit;
+  width: inherit;
 }
 
 .banner2{
@@ -74,13 +75,13 @@ padding-left: 0px;
 }
 
 .alltrans{
-  list-style-type: none;
-  font-family: system-ui;
-  font-weight: bolder;
-  display: flex;
-  align-items: center;
-  width: 135px;
-  height: 50px;
+    font-family: system-ui;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    width: 180px;
+    height: 80px;
+    color: #f9f9f9;
 }
 
 
