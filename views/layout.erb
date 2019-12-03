@@ -14,11 +14,24 @@
       <h2>Let's track that <span class="bread"> bread!</span></h2>
 
   </div>
+  <div class="banner2">
+
+    <div class="balance-amount">
+      <div class="balance">
+        Balance
+      </div>
+      <% balance = 1000  %>
+      <% for transaction in @transactions  %>
+      <% balance -= transaction.amount.to_f %>
+      <% end %>
+      <%= balance.round(2) %>
+    </div>
   <nav>
     <ul>
       <li><a href="/">All transactions</a></li>
     </ul>
   </nav>
+  </div>
 <section id="content">
   <%= yield %>
 </section>

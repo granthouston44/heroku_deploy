@@ -16,7 +16,7 @@ a{
   color:inherit;
 }
 
-nav{
+.banner2{
   display: flex;
   height: 80px;
   background-image: linear-gradient(to left, rgb(3, 200, 197), rgba(21, 102, 209, 1))
@@ -43,6 +43,18 @@ width: 260px;
   display: flex;
   font-family: system-ui;
 
+}
+
+.balance-amount{
+margin-top: 30px;
+border-left: ridge;
+display: flex;
+padding-right: 10px;
+order: 1;
+align-self: flex-start;
+width: 600px;
+justify-content: flex-end;
+margin-left: 425px;
 }
 
 .newtransactionlink{
