@@ -30,7 +30,7 @@ width: 260px;
 } */
 
 #merchant{
-    color: #438FF4;
+  color: #438FF4;
 }
 
 .button-wrapper, .transaction_entry{
@@ -45,34 +45,66 @@ width: 260px;
 
 }
 
+#content{
+  padding-top: 50px
+}
+
 .balance-amount{
-margin-top: 30px;
-border-left: ridge;
-display: flex;
-padding-right: 10px;
-order: 1;
-align-self: flex-start;
-width: 600px;
-justify-content: flex-end;
-margin-left: 425px;
+  margin-top: 22px;
+  border-left: ridge;
+  display: flex;
+  padding-right: 10px;
+  order: 1;
+  align-self: flex-start;
+  width: 600px;
+  justify-content: flex-end;
+  margin-left: 1138px;
+  flex-direction: column;
+  padding-left: 13px;
+  font-size: 25px;
+  color: #f9f9f9;
+  font-family: system-ui;
+  place-items: flex-end;
+}
+
+.breadimg{
+  width: 6%;
+height: 94%;
+padding-left: 0px;
+}
+
+.alltrans{
+  list-style-type: none;
+  font-family: system-ui;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  width: 135px;
+  height: 50px;
+}
+
+
+.balance{
+  font-size: 14px;
 }
 
 .newtransactionlink{
   flex: auto;
+  padding-left: 20px;
 }
 
 .dropdown, .newtransactionbtn{
-position:relative;
-background-color: #1566d1;
-border-radius: 25px;
-padding: 20px;
-width: 260px;
-height: 10px;
-color: #f9f9f9;
-font-size: 16px;
-text-align: center;
-line-height: 0.125em;
-font-weight: bold;
+  position:relative;
+  background-color: #1566d1;
+  border-radius: 25px;
+  padding: 20px;
+  width: 260px;
+  height: 10px;
+  color: #f9f9f9;
+  font-size: 16px;
+  text-align: center;
+  line-height: 0.125em;
+  font-weight: bold;
 }
 
 .dropbtn{
