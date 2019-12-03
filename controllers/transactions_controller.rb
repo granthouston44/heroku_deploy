@@ -58,7 +58,6 @@ get '/transactions/merchant' do
 end
 
 get '/transactions/tag' do
-  url = request.url
   @transactions = Transaction.sort_by_tag
   @merchants = Merchant.all
   @tags = Tag.all
@@ -72,13 +71,13 @@ get '/transactions/date' do
   erb(:"home")
 end
 
-post '/transactions/filter-merchant'do
 
-id = params['merchant_id'].to_i
-@transactions = Transaction.filter_merchant(id)
-@tags = Tag.all
-@merchants = Merchant.all
-erb(:home)
+post '/transactions/filter-merchant/' do
+  id = params['merchant_id'].to_i
+  @transactions = Transaction.filter_merchant(id)
+  @tags = Tag.all
+  @merchants = Merchant.all
+  erb(:"home")
 end
 
 post '/transactions/filter-tag' do

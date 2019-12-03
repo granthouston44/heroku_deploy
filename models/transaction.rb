@@ -170,6 +170,7 @@ class Transaction
     end
 
 
+
     def self.sort_by_date
       sql =
       "
@@ -296,4 +297,9 @@ class Transaction
       end
     end
 
-  end
+    # def self.sort_by_tag(filtered)
+    #     filtered = filtered.sort_by {|hash| hash.tag_id}
+    #     return filtered
+    # end
+
+end
