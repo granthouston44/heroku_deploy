@@ -8,15 +8,14 @@
   <%= balance.round(2) %>
 </div>
 
-<div class="btn--wrapper">
-  <a class ="btn btn--action" href="/transactions/new">New Transaction</a>
-</div>
 <div class="dropdown">
-  <button class="dropbtn">Sort by</button>
+  <a href="/transactions/new">New Transaction</a>
+</div>
+
+<div class="dropdown">
+  <button class="dropbtn"> Sort by</button>
   <div class = "dropdown-content">
-    <form action="/transactions/tag" method="GET">
-    <input class="bt btn--action" type='submit' value="Tag">
-    </form>
+    <a href="/transactions/tag">Tag</a>
     <a href="transactions/merchant">Merchant</a>
     <a href="transactions/date">Date</a>
   </div>
