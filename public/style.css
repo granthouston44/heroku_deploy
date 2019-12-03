@@ -1,6 +1,13 @@
-.balance-header {
+.banner {
   display:flex;
-  color: red;
+  color: #696969;
+}
+
+.bread {
+  color: #1566d1;
+  font-weight: bolder;
+  font-style: italic;
+  letter-spacing: 5px;
 }
 
 a{
@@ -9,7 +16,12 @@ a{
   color:inherit;
 }
 
+nav{
+  display: flex;
+  height: 80px;
+  background-image: linear-gradient(to left, rgb(3, 200, 197), rgba(21, 102, 209, 1))
 
+}
 /* .dropdown{
 position:relative;
 display: inline-block;
@@ -17,13 +29,24 @@ height: 42px;
 width: 260px;
 } */
 
-.button-wrapper{
+#merchant{
+    color: #438FF4;
+}
+
+.button-wrapper, .transaction_entry{
   display: flex;
   justify-content: space-between;
 }
 
 .newtransactionbtn{
   order:1;
+  display: flex;
+  font-family: system-ui;
+
+}
+
+.newtransactionlink{
+  flex: auto;
 }
 
 .dropdown, .newtransactionbtn{

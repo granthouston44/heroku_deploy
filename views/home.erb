@@ -10,7 +10,7 @@
 
 <div class="button-wrapper">
 <div class="newtransactionbtn">
-  <a href="/transactions/new">New Transaction</a>
+  <a class="newtransactionlink" href="/transactions/new">New Transaction</a>
 </div>
 
 <div class="dropdown">
@@ -63,9 +63,13 @@
 </form>
 </label>
 
+
+
+
 <hr/>
 <% for transaction in @transactions %>
-<p>Merchant: <%= transaction.merchant_id%></p>
+<div class="transaction_entry">
+<p id="merchant"><%= transaction.merchant_id%></p>
 <p>Amount: <%= transaction.amount%> </p>
 <p>Date: <%= transaction.date %></p>
 <p>Tag: <%= transaction.tag_id %></p>
@@ -80,5 +84,7 @@
     <button type="submit">Edit transaction</button>
   </form>
 </div>
+</div>
 <hr/>
+
 <% end  %>
