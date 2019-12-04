@@ -12,7 +12,7 @@ class Merchant
     #right key for the relevant property
     #if there is an id, get the value and make sure it is an int
     @id = merchant_details['id'].to_i if merchant_details['id']
-    @merchant_name = merchant_details['merchant_name']
+    @merchant_name = merchant_details['merchant_name'].capitalize
   end
 
   def self.delete_all()
