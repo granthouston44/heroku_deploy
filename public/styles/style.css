@@ -181,4 +181,25 @@ width: 260px;
   height: 30px;
   padding-bottom: 18px;
 }
+
+
+.filter-wrapper{
+  display: flex;
+  display: flex;
+  align-items: center;
+  text-align-last: center;
+  justify-content: space-around;
+  height:150px;
+}
+
+.filtertext{
+  padding-bottom: 10px
+}
+
+.filterselect{
+  padding-left: 18px;
+}
+
+.filterbutton{
+  padding-top: 10px;
 }

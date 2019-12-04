@@ -7,7 +7,7 @@ attr_accessor :tag_name
 
 def initialize(tag_details)
   @id = tag_details['id'].to_i if tag_details['id']
-  @tag_name = tag_details['tag_name']
+  @tag_name = tag_details['tag_name'].capitalize
 end
 
 def self.delete_all

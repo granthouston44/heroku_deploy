@@ -3,81 +3,102 @@
 
 
 <div class="button-wrapper">
-<div class="newtransactionbtn">
-  <a class="newtransactionlink" href="/transactions/new">New Transaction</a>
-</div>
+  <div class="newtransactionbtn">
+    <a class="newtransactionlink" href="/transactions/new">New Transaction</a>
+  </div>
 
-<div class="dropdown">
+  <div class="dropdown">
 
-  <button class="dropbtn"> Sort by</button>
+    <button class="dropbtn"> Sort by</button>
 
-  <div class = "dropdown-content">
-    <a href="/transactions/tag">Tag  |</a>
-    <a href="/transactions/merchant">Merchant  |</a>
-    <a href="/transactions/date">Date</a>
+    <div class = "dropdown-content">
+      <a href="/transactions/tag">Tag  |</a>
+      <a href="/transactions/merchant">Merchant  |</a>
+      <a href="/transactions/date">Date</a>
+    </div>
   </div>
 </div>
+
+<div class="filter-wrapper">
+
+  <label>
+
+    <form action="/transactions/filter-merchant/" method="POST">
+      <div class="filtertext">
+        Filter by Merchant:
+      </div>
+      <div class="filterselect">
+        <select class="select-css"name="merchant_id" id="merchant_id">
+          <% for merchant in @merchants %>
+          <option value="<%= merchant.id %>"><%= merchant.merchant_name %></option>
+          <% end  %>
+        </select>
+      </div>
+      <div class ="filterbutton">
+      <input class="bt btn--action" type='submit' value="Filter">
+      </div>
+    </form>
+
+  </label>
+
+
+  <label>
+    <form action="/transactions/filter-tag" method="POST">
+      <div class="filtertext">Filter by Tag:</div>
+      <div class="filterselect">
+      <select class="select-css"name="tag_id" id="">
+        <% @tags.uniq! {|tag| tag.tag_name}  %>
+        <% for tag in @tags %>
+        <option value="<%= tag.id %>"><%= tag.tag_name %></option>
+        <% end  %>
+      </select>
+      </div>
+      <div class="filterbutton">
+      <input class="bt btn--action" type='submit' value="Filter">
+      </div>
+    </form>
+  </label>
+
+  <label>
+    <form action="/transactions/filter-date" method="POST">
+<div class="filtertext">
+      Filter by Month:
+      </div>
+      <div clas="filterselect">
+      <select class="select-css" name="date_of_transaction" id="">
+        <% uniq = @transactions.uniq {|transaction| Date.parse(transaction.date).strftime("%B")}  %>
+        <% for transaction in uniq %>
+        <option value="<%= transaction.id %>"><%=  Date.parse(transaction.date).strftime("%B") %></option>
+        <% end  %>
+      </select>
+      </div>
+      <div class="filterbutton">
+      <input class="bt btn--action" type='submit' value="Filter">
+      </div>
+    </form>
+  </label>
 </div>
-<label>
-  <form action="/transactions/filter-merchant/" method="POST">
-  Filter by Merchant:
-  <select class="select-css"name="merchant_id" id="merchant_id">
-    <% for merchant in @merchants %>
-    <option value="<%= merchant.id %>"><%= merchant.merchant_name %></option>
-    <% end  %>
-  </select>
-  <input class="bt btn--action" type='submit' value="Filter">
-  </form>
-</label>
-
-<label>
-  <form action="/transactions/filter-tag" method="POST">
-  Filter by Tag:
-  <select class="select-css"name="tag_id" id="">
-    <% @tags.uniq! {|tag| tag.tag_name}  %>
-    <% for tag in @tags %>
-    <option value="<%= tag.id %>"><%= tag.tag_name %></option>
-    <% end  %>
-  </select>
-  <input class="bt btn--action" type='submit' value="Filter">
-  </form>
-</label>
-
-<label>
-  <form action="/transactions/filter-date" method="POST">
-
-  Filter by Month:
-  <select class="select-css" name="date_of_transaction" id="">
-    <% uniq = @transactions.uniq {|transaction| Date.parse(transaction.date).strftime("%B")}  %>
-    <% for transaction in uniq %>
-    <option value="<%= transaction.id %>"><%=  Date.parse(transaction.date).strftime("%B") %></option>
-    <% end  %>
-  </select>
-  <input class="bt btn--action" type='submit' value="Filter">
-</form>
-</label>
-
 
 
 
 <hr/>
 <% for transaction in @transactions %>
 <div class="transaction_entry">
-<p id="merchant"><%= transaction.merchant_id%></p>
-<p>Amount: <%= transaction.amount%> </p>
-<p>Date: <%= transaction.date %></p>
-<p>Tag: <%= transaction.tag_id %></p>
+  <p id="merchant"><%= transaction.merchant_id%></p>
+  <p>Amount: <%= transaction.amount%> </p>
+  <p>Date: <%= transaction.date %></p>
+  <p>Tag: <%= transaction.tag_id %></p>
 
-<div class="delete">
-  <form action="/transactions/<%= transaction.id %>/delete" method="POST">
-    <input class="btn btn--danger" type="submit" value="delete"/>
-  </form>
-</div>
-<div class="edit">
-  <form action="/transactions/<%= transaction.id %>/edit">
-    <button type="submit">Edit transaction</button>
-  </form>
-</div>
+  <div class="delete">
+    <form action="/transactions/<%= transaction.id %>/delete" method="POST">
+      <input class="btn btn--danger" type="submit" value="delete"/>
+    </form>
+  </div>
+  <div class="edit">
+    <form action="/transactions/<%= transaction.id %>/edit">
+      <button type="submit">Edit transaction</button>
+    </form>
+  </div>
 </div>
 <hr/>
 
