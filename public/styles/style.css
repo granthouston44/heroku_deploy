@@ -10,6 +10,11 @@
   letter-spacing: 5px;
 }
 
+#content{
+  font-family: system-ui;
+}
+
+
 a{
   text-decoration: none!important;
   cursor: pointer;
@@ -144,6 +149,7 @@ width: 260px;
   white-space: pre-wrap;
   text-align-last: center;
   border: groove;
+  font-family: system-ui
 }
 
 .addtransaction{

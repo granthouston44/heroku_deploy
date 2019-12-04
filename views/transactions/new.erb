@@ -2,7 +2,7 @@
 <form action="/transactions" method="post">
 <label>
   Choose existing Merchant:
-  <select name="merchant_id">
+  <select class="select-css" name="merchant_id">
     <% for merchant in @merchants %>
     <option value="<%= merchant.id %>"><%= merchant.merchant_name %></option>
     <% end  %>
@@ -21,7 +21,7 @@ New Merchant:
 
 <label>
   Choose existing tag:
-  <select name="tag_id" id="">
+  <select class="select-css" name="tag_id" id="">
     <% for tag in @tags %>
     <option value="<%= tag.id %>"><%= tag.tag_name %></option>
     <% end  %>
@@ -56,7 +56,10 @@ Amount:
 <input class="addtransactionbutton" type='submit' value="Edit Merchant">
 </form>
 </div>
+<div class="addtransaction">
 <form action="/transactions/edit-tag">
-<input class="bt btn--action" type='submit' value="Edit Tag">
+<input class="addtransactionbutton" type='submit' value="Edit Tags">
 </form>
+</div>
+
 </div>

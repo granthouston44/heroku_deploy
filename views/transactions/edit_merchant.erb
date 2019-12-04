@@ -6,7 +6,7 @@
 
   <label>
     Choose existing Merchant:
-    <select name="merchant_id">
+    <select class="select-css" name="merchant_id">
       <% for merchant in @merchants %>
       <option value="<%= merchant.id %>">
         <%= merchant.merchant_name %>

@@ -80,7 +80,6 @@ class Merchant
     values = [id]
     merchants = SqlRunner.run(sql,values).first
     return Merchant.new(merchants)
-
   end
 
   def self.delete(id)

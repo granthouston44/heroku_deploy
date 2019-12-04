@@ -21,7 +21,7 @@
 <label>
   <form action="/transactions/filter-merchant/" method="POST">
   Filter by Merchant:
-  <select name="merchant_id" id="merchant_id">
+  <select class="select-css"name="merchant_id" id="merchant_id">
     <% for merchant in @merchants %>
     <option value="<%= merchant.id %>"><%= merchant.merchant_name %></option>
     <% end  %>
@@ -33,7 +33,7 @@
 <label>
   <form action="/transactions/filter-tag" method="POST">
   Filter by Tag:
-  <select name="tag_id" id="">
+  <select class="select-css"name="tag_id" id="">
     <% @tags.uniq! {|tag| tag.tag_name}  %>
     <% for tag in @tags %>
     <option value="<%= tag.id %>"><%= tag.tag_name %></option>
@@ -47,7 +47,7 @@
   <form action="/transactions/filter-date" method="POST">
 
   Filter by Month:
-  <select name="date_of_transaction" id="">
+  <select class="select-css" name="date_of_transaction" id="">
     <% uniq = @transactions.uniq {|transaction| Date.parse(transaction.date).strftime("%B")}  %>
     <% for transaction in uniq %>
     <option value="<%= transaction.id %>"><%=  Date.parse(transaction.date).strftime("%B") %></option>
