@@ -1,5 +1,4 @@
-<h1>Add your transaction details</h1>
-
+<div class="newcontainer">
 <form action="/transactions" method="post">
 <label>
   Choose existing Merchant:
@@ -39,19 +38,25 @@ New Merchant:
     <input type="date" name="date_of_transaction">
     </label>
 
+<div class="amountnew">
 <label>
 Amount:
+<div class="amounttextbox">
 <input type="number" name="amount" value="amount" step=".01">
+</div>
 </label>
+</div>
 
-<input class="bt btn--action" type='submit' value="Add">
-
+<div class = "addtransaction">
+<input class="addtransactionbutton" type='submit' value="Add Transaction">
+</div>
 </form>
-
-<form action="/transactions/edit-merchant">
-<input class="bt btn--action" type='submit' value="Edit Merchant">
+<div class="addtransaction">
+<form action="/transactions/edit-merchants">
+<input class="addtransactionbutton" type='submit' value="Edit Merchant">
 </form>
-
+</div>
 <form action="/transactions/edit-tag">
 <input class="bt btn--action" type='submit' value="Edit Tag">
 </form>
+</div>

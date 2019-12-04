@@ -6,6 +6,7 @@ require_relative('../app.rb')
 
 #new
 get '/transactions/new' do
+  @transactions = Transaction.all
   @merchants = Merchant.all
   @tags = Tag.all
   erb(:"transactions/new")
@@ -40,7 +41,8 @@ end
 
 
 
-get '/transactions/edit-merchant' do
+get '/transactions/edit-merchants' do
+  @transactions = Transaction.all
   @merchants = Merchant.all()
   erb(:"transactions/edit_merchant")
 end
