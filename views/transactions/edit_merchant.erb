@@ -19,8 +19,9 @@
   <div class="edit-merchant">
     Change to:
     <input type="text" name="merchant_name"/>
-      <input class="btn btn--danger" type="submit" value="Update Merchant"/>
-
+    <div class="addtransaction">
+      <input class="addtransactionbutton" type="submit" value="Update Merchant"/>
+    </div>
   </div>
 
   </form>
@@ -29,8 +30,9 @@
   <form action="/transactions/add-merchant" method="POST">
     New Merchant:
     <input type="text" name="merchant_name" value="">
-    <input class="bt btn--action" type='submit' value="Add merchant">
-
+    <div class="addtransaction">
+    <input class="addtransactionbutton" type='submit' value="Add merchant">
+    </div>
 
   </form>
   </label>

@@ -1,65 +1,80 @@
-<div class="newcontainer">
 <form action="/transactions" method="post">
-<label>
-  Choose existing Merchant:
-  <select class="select-css" name="merchant_id">
-    <% for merchant in @merchants %>
-    <option value="<%= merchant.id %>"><%= merchant.merchant_name %></option>
-    <% end  %>
-  </select>
+<div id="newcontainer">
 
-</label>
+  <div class="existingmerchant">
 
+    <label>
+      Choose existing Merchant:
+      <select class="select-css" name="merchant_id">
+        <% for merchant in @merchants %>
+        <option value="<%= merchant.id %>"><%= merchant.merchant_name %></option>
+        <% end  %>
+      </select>
 
-<label>
-New Merchant:
-<input type="text" name="merchant_name" value="">
-</label>
-<input class="bt btn--action" type='submit' value="Add merchant">
-
-
-
-<label>
-  Choose existing tag:
-  <select class="select-css" name="tag_id" id="">
-    <% for tag in @tags %>
-    <option value="<%= tag.id %>"><%= tag.tag_name %></option>
-    <% end  %>
-  </select>
-
-  <label>
-  New tag:
-  <input type="text" name="tag_name" value="">
-  </label>
-  <input class="bt btn--action" type='submit' value="Add tag">
-
-  <label>
-    Date:
-    <input type="date" name="date_of_transaction">
     </label>
-
-<div class="amountnew">
-<label>
-Amount:
-<div class="amounttextbox">
-<input type="number" name="amount" value="amount" step=".01">
-</div>
-</label>
 </div>
 
-<div class = "addtransaction">
-<input class="addtransactionbutton" type='submit' value="Add Transaction">
+<div class="newmerchant">
+    <label>
+      New Merchant:
+      <input type="text" name="merchant_name" value="">
+    </label>
+    <div class="addtransaction">
+      <input class="addtransactionbutton" type='submit' value="Add merchant">
+    </div>
 </div>
-</form>
-<div class="addtransaction">
-<form action="/transactions/edit-merchants">
-<input class="addtransactionbutton" type='submit' value="Edit Merchant">
-</form>
+
+<div class="existingtag">
+    <label>
+      Choose existing tag:
+      <select class="select-css" name="tag_id" id="">
+        <% for tag in @tags %>
+        <option value="<%= tag.id %>"><%= tag.tag_name %></option>
+        <% end  %>
+      </select>
+
+    </label>
 </div>
-<div class="addtransaction">
-<form action="/transactions/edit-tag">
-<input class="addtransactionbutton" type='submit' value="Edit Tags">
-</form>
+
+<div class="newtag">
+    <label>
+      New tag:
+      <input type="text" name="tag_name" value="">
+    </label>
+    <div class="addtransaction">
+      <input class="addtransactionbutton" type='submit' value="Add tag">
+    </div>
 </div>
+
+<div class="newdate">
+    <label>
+      Date:
+      <input type="date" name="date_of_transaction">
+    </label>
+</div>
+
+    <div class="amountnew">
+      <label>
+        Amount:
+        <div class="amounttextbox">
+          <input type="number" name="amount" value="amount" step=".01">
+        </div>
+      </label>
+    </div>
+
+    <div id="addtransaction" class = "addtransaction">
+      <input class="addtransactionbutton" type='submit' value="Add Transaction">
+    </div>
+  </form>
+  <div id="editmerchant" class="addtransaction">
+    <form action="/transactions/edit-merchants">
+      <input class="addtransactionbutton" type='submit' value="Edit Merchant">
+    </form>
+  </div>
+  <div id="edittag" class="addtransaction">
+    <form action="/transactions/edit-tag">
+      <input class="addtransactionbutton" type='submit' value="Edit Tags">
+    </form>
+  </div>
 
 </div>

@@ -143,13 +143,13 @@ width: 260px;
   display: block;
 }
 
-.newcontainer{
+#newcontainer{
   display: flex;
   flex-direction: column;
-  white-space: pre-wrap;
   text-align-last: center;
   border: groove;
-  font-family: system-ui
+  font-family: system-ui;
+  text-align: -webkit-center;
 }
 
 .addtransaction{
@@ -202,4 +202,40 @@ width: 260px;
 
 .filterbutton{
   padding-top: 10px;
+}
+
+.existingmerchant{
+  order: 3;
+}
+
+.existingtag{
+  order: 4;
+}
+
+.newmerchant{
+  order: 6;
+}
+
+.newtag{
+  order: 7;
+}
+
+.newdate{
+  order:2;
+}
+
+.amountnew{
+  order:1
+}
+
+#addtransaction{
+  order:5;
+}
+
+#editmerchant{
+  order: 8;
+}
+
+#edittag{
+  order:9;
 }

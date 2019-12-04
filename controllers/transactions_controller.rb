@@ -48,6 +48,7 @@ get '/transactions/edit-merchants' do
 end
 
 get '/transactions/edit-tag' do
+  @transactions = Transaction.all
   @tags = Tag.all
   erb(:"transactions/edit_tag")
 end
