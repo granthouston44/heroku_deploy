@@ -150,7 +150,10 @@ width: 260px;
   border: groove;
   font-family: system-ui;
   text-align: -webkit-center;
-  width: fit-content;
+  width: auto;
+  padding:12px;
+  margin-left: 300px;
+margin-right: 300px;
 }
 
 .addtransaction{
