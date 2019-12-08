@@ -1,5 +1,5 @@
 # Spending Tracker
-A simple web app that displays interactions with a PosgreSQL database (CRUD) and web programming using both MVC and RESTful routes 
+A simple web app that displays interactions with a PosgreSQL database (CRUD) and web programming using both MVC and RESTful routes
 
 The app allows a user to track their spending.
 A new transaction can be added with chosen date, an assigned Merchant and Tag (i.e. 'groceries')
@@ -62,17 +62,17 @@ ruby db/seeds.rb
 ```
 
 #### Start the server
-To get the server up and running, now run 
+To get the server up and running, now run
 ```
 ruby app.rb
 ```
 
 ### Launching the app
 To enter the app, on your browser of choice browse enter the following URL
-> lhttp://localhost:4567/
+> http://localhost:4567/
 
 ### Built with
-- Ruby 
+- Ruby
 - Sinatra
 - PostgreSQL
 
