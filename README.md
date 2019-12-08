@@ -53,6 +53,7 @@ createdb spend_tracker
 Then to actually create the revelevant tables for the app
 ```
 psql -d spend_tracker -f db/spend_tacker.sql
+```
 
 #### Seeding the database
 To confirm that the database is working, we can seed the database with default data that should then be viewed on the webapp.
