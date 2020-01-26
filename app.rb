@@ -1,7 +1,7 @@
 require('sinatra')
 require('sinatra/contrib/all')
 also_reload('./models/*')
-require('pry')
+# require('pry')
 
 require_relative("./controllers/transactions_controller")
 

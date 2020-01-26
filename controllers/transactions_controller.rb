@@ -1,7 +1,7 @@
 require_relative('../models/transaction')
 require_relative('../models/merchant')
 require_relative('../models/tag')
-require('pry')
+# require('pry')
 require_relative('../app.rb')
 
 #new

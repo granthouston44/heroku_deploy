@@ -1,7 +1,7 @@
 require_relative('../db/sql_runner')
 require_relative('./tag')
 require_relative('./merchant')
-require('pry')
+# require('pry')
 
 class Transaction
 
@@ -39,6 +39,11 @@ class Transaction
     @date = result.first['date_of_transaction']
   end
 
+#when i call Transaction.all
+#i want to access the database
+#run an sql command that will return everything from the transacations table
+#as sql returns an array of hashes, i want to then map out the results into an array
+#containing all the transaction objects
   def self.all()
     sql =
     "

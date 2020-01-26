@@ -1,7 +1,7 @@
 require_relative('../models/merchant')
 require_relative('../models/tag')
 require_relative('../models/transaction')
-require('pry')
+# require('pry')
 
   Transaction.delete_all()
   Merchant.delete_all()
@@ -78,5 +78,4 @@ transaction5.save()
   transaction6.save()
 
 
-binding.pry
 nil

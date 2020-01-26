@@ -5,7 +5,8 @@ class SqlRunner
   def self.run(sql,values = [])
     begin
       # Connect to the database
-      db = PG.connect({dbname: 'spend_tracker', host: 'localhost'})
+      db = PG.connect({dbname: 'dc6ge8qv4sneas', host: 'ec2-1-1-1-1-1.compute-1.amazonaws.com',
+        port: 5432, user: 'nsdlkdjalskjd', password: 'sadlskjadlkjASDAD'})
       # Prepare the SQL command
       db.prepare("query", sql)
       # Execute the SQL and get the properties within the values array
