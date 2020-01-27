@@ -1,7 +1,7 @@
 require_relative('../db/sql_runner')
 require_relative('./tag')
 require_relative('./merchant')
-# require('pry')
+
 
 class Transaction
 
