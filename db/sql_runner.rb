@@ -5,8 +5,8 @@ class SqlRunner
   def self.run(sql,values = [])
     begin
       # Connect to the database
-      db = PG.connect({dbname: 'd22g14lifffkdl', host: 'ec2-54-174-221-35.compute-1.amazonaws.com',
-        port: 5432, user: 'dxecgbdeiexhsx', password: '53f9f79fcd091acca765fae7837790f830b01155035130200fec8a94f7d61ab1'})
+      db = PG.connect({dbname: 'dbe1trql14rvvm', host: 'ec2-54-174-221-35.compute-1.amazonaws.com',
+        port: 5432, user: 'bvptyzylruggte', password: 'b977653e9d9427f65feb513bfdd64764d834ff17def32050894718b38e4ee775'})
       # Prepare the SQL command
       db.prepare("query", sql)
       # Execute the SQL and get the properties within the values array
