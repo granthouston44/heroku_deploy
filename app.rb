@@ -1,6 +1,6 @@
 require('sinatra')
 require('sinatra/contrib/all') if development?
-also_reload('./models/*')
+# also_reload('./models/*')
 # require('pry')
 
 require_relative("./controllers/transactions_controller")
